@@ -1,0 +1,44 @@
+.switch {
+  position: relative;
+  display: flex;
+  margin: 0 16px;
+  padding: 2px;
+  gap: 2px;
+  background: #1e1e1e;
+  border-radius: 999px;
+}
+
+.switch::after {
+  content: "";
+  height: 40px;
+  width: calc(33.33% - 2px);
+  background: #333333;
+  border-radius: 999px;
+  position: absolute;
+  transition-duration: 0.33s;
+}
+
+.switch.service::after {
+  left: 2px;
+}
+
+.switch.location::after {
+  left: 33.33%;
+}
+
+.switch.global::after {
+  left: 66.66%;
+}
+
+button {
+  height: 40px;
+  flex: 1 1 0%;
+  border-radius: 999px;
+  color: #999999;
+  z-index: 1;
+}
+
+button.active {
+  font-weight: 500;
+  color: #ffffff;
+}
