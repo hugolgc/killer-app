@@ -9,12 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "^5.0.4",
+    "@capacitor/core": "^5.0.4",
+    "@capacitor/ios": "^5.0.4",
     "@directus/sdk": "^10.3.3",
     "dayjs": "^1.11.7",
     "vue": "^3.2.47",
     "vue-router": "^4.2.1"
   },
   "devDependencies": {
+    "@capacitor/cli": "^5.0.4",
     "@vitejs/plugin-vue": "^4.1.0",
     "sass": "^1.62.1",
     "typescript": "^5.0.2",

@@ -1,7 +1,6 @@
 import { ICompany } from "./company.interface";
-import { IReactive } from "./reactive.interface";
 
-export interface IService extends IReactive {
+export interface IService {
   id: number;
   name: string;
   company: ICompany;
