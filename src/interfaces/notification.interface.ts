@@ -1,6 +1,5 @@
-import { INotificationDto } from "./notification-dto.interface";
-
-export interface INotification extends INotificationDto {
+export interface INotification {
   id: number;
   active: boolean;
+  value: string;
 }

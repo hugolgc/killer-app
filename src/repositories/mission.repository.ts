@@ -44,7 +44,6 @@ export const missionRepository = {
       const missions = await api
         .items("missions")
         .createMany(missionsDto, missionFactory.getMissionsFromUser(user));
-      console.log(missions.data);
       return dataHelper.to<IMission[]>(missions.data);
     } catch (e) {
       notificationService.throw(e, "Une erreur est survenue");

@@ -69,13 +69,10 @@ export const missionHelper = {
     objectivesType: TObjective[],
     objectives: IObjective[],
     current: IUser,
-    users: IUser[]
+    targets: IUser[]
   ): IMissionDto[] {
     const now = dayjs();
-    const targets = users.filter((user) => user.id !== current.id);
     const missionsDto: IMissionDto[] = [];
-
-    if (!targets.length) return [];
 
     objectivesType.forEach((objectiveType) => {
       const objectivesOfType = objectives.filter((objective) => {

@@ -1,10 +1,9 @@
 import { reactive } from "vue";
 import { INotification } from "../interfaces/notification.interface";
-import { INotificationDto } from "../interfaces/notification-dto.interface";
 
 interface IState {
   notifications: INotification[];
-  addNotification(notificationDto: INotificationDto): void;
+  addNotification(value: string): void;
   getIndexOfNotification(notification: INotification): number;
   closeNotification(notification: INotification): void;
   throw(error: any, value: string): void;
@@ -13,10 +12,10 @@ interface IState {
 export const notificationService = reactive<IState>({
   notifications: [],
 
-  addNotification(notificationDto: INotificationDto): void {
+  addNotification(value: string): void {
     const notification = {
-      ...notificationDto,
       id: Date.now(),
+      value,
       active: true,
     };
 
@@ -30,12 +29,11 @@ export const notificationService = reactive<IState>({
 
   closeNotification(notification: INotification): void {
     const index = this.getIndexOfNotification(notification);
-    console.log(index);
     this.notifications[index].active = false;
   },
 
   throw(error: any, value: string): void {
-    this.addNotification({ value });
+    this.addNotification(value);
     console.error(error);
   },
 });

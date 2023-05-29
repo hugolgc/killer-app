@@ -46,11 +46,14 @@ export const missionService = reactive<IState>({
       objectiveRepository.getObjectives(),
     ]);
 
+    const targets = users.filter((user) => user.id !== current.id);
+    if (!targets.length) return;
+
     const missionsDto = missionHelper.getMissionsDto(
       objectiveTypes,
       objectives,
       current,
-      users
+      targets
     );
 
     missionRepository.createMissions(missionsDto, current).then((missions) => {
