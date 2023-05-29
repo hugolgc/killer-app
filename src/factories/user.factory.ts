@@ -1,3 +1,5 @@
+import { IPlace } from "../interfaces/place.interface";
+
 export const userFactory = {
   read() {
     return {
@@ -30,6 +32,13 @@ export const userFactory = {
         "missions.completed",
       ],
       sort: ["-points"],
+    };
+  },
+
+  getActiveUsersFromPlace(place: IPlace) {
+    return {
+      fields: "id",
+      filter: { status: "active", place: place.id },
     };
   },
 };

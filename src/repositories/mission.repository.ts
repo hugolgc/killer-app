@@ -1,6 +1,8 @@
 import { environment } from "../environments";
+import { notificationService } from "../services/notification.service";
 import { missionFactory } from "../factories/mission.factory";
 import { dataHelper } from "../helpers/data.helper";
+import { IMissionDto } from "../interfaces/mission-dto.interface";
 import { IMission } from "../interfaces/mission.interface";
 import { IPlace } from "../interfaces/place.interface";
 import { IUser } from "../interfaces/user.interface";
@@ -15,7 +17,7 @@ export const missionRepository = {
 
       return dataHelper.to<IMission[]>(missions.data);
     } catch (e) {
-      console.warn(e);
+      notificationService.throw(e, "Une erreur est survenue");
       throw new Error();
     }
   },
@@ -29,7 +31,23 @@ export const missionRepository = {
 
       return dataHelper.to<IMission[]>(missions.data);
     } catch (e) {
-      console.warn(e);
+      notificationService.throw(e, "Une erreur est survenue");
+      throw new Error();
+    }
+  },
+
+  async createMissions(
+    missionsDto: IMissionDto[],
+    user: IUser
+  ): Promise<IMission[]> {
+    try {
+      const missions = await api
+        .items("missions")
+        .createMany(missionsDto, missionFactory.getMissionsFromUser(user));
+      console.log(missions.data);
+      return dataHelper.to<IMission[]>(missions.data);
+    } catch (e) {
+      notificationService.throw(e, "Une erreur est survenue");
       throw new Error();
     }
   },

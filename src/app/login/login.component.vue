@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { authService } from "../../services/auth.service";
 import { userService } from "../../services/user.service";
+import { notificationService } from "../../services/notification.service";
 
 const router = useRouter();
 const loading = ref<boolean>(false);
@@ -15,7 +16,8 @@ async function login(): Promise<void> {
     await userService.read();
     if (userService.user) router.push("/game/mission");
   } catch (e) {
-    console.warn("identifiants incorrectes");
+    notificationService.throw(e, "Identifiants incorrectes");
+    throw new Error();
   } finally {
     loading.value = false;
   }

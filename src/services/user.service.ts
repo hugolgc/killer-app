@@ -19,7 +19,6 @@ export const userService = reactive<IState>({
   getUsers(): void {
     userRepository.getUsers().then((users) => {
       this.users = users;
-      console.table(this.users);
     });
   },
 });
