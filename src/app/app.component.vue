@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { RouterView, useRouter } from "vue-router";
 import { userService } from "../services/user.service";
+import NotificationComponent from "./_notification/notification.component.vue";
 
 const router = useRouter();
 const loading = ref<boolean>(false);
@@ -21,6 +22,7 @@ if (localStorage.getItem("auth_token")) read();
 </script>
 
 <template>
+  <NotificationComponent />
   <RouterView />
 </template>
 

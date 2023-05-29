@@ -4,27 +4,38 @@ import { INotificationDto } from "../interfaces/notification-dto.interface";
 
 interface IState {
   notifications: INotification[];
-  add(notificationDto: INotificationDto): void;
+  addNotification(notificationDto: INotificationDto): void;
+  getIndexOfNotification(notification: INotification): number;
+  closeNotification(notification: INotification): void;
   throw(error: any, value: string): void;
-  close(index: number): void;
 }
 
 export const notificationService = reactive<IState>({
   notifications: [],
 
-  add(notificationDto: INotificationDto): void {
-    const index = this.notifications.push({ ...notificationDto, active: true });
-    console.log(index);
+  addNotification(notificationDto: INotificationDto): void {
+    const notification = {
+      ...notificationDto,
+      id: Date.now(),
+      active: true,
+    };
 
-    setTimeout(() => this.close(index), 3_000);
+    this.notifications.push(notification);
+    setTimeout(() => this.closeNotification(notification), 4_000);
+  },
+
+  getIndexOfNotification(notification: INotification): number {
+    return this.notifications.indexOf(notification);
+  },
+
+  closeNotification(notification: INotification): void {
+    const index = this.getIndexOfNotification(notification);
+    console.log(index);
+    this.notifications[index].active = false;
   },
 
   throw(error: any, value: string): void {
-    this.add({ value, type: "error" });
+    this.addNotification({ value });
     console.error(error);
-  },
-
-  close(index: number): void {
-    this.notifications[index].active = false;
   },
 });

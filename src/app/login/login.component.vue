@@ -16,7 +16,10 @@ async function login(): Promise<void> {
     await userService.read();
     if (userService.user) router.push("/game/mission");
   } catch (e) {
-    notificationService.throw(e, "Identifiants incorrectes");
+    notificationService.throw(
+      e,
+      "Nous n'avons pas trouvé de compte avec ces informations."
+    );
     throw new Error();
   } finally {
     loading.value = false;

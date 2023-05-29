@@ -1,4 +1,4 @@
 export interface INotificationDto {
-  type: "success" | "warn" | "error";
+  // type: "success" | "info" | "warn" | "error";
   value: string;
 }

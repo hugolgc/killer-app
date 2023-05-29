@@ -1,9 +1,9 @@
 import { environment } from "../environments";
+import { notificationService } from "../services/notification.service";
 import { userFactory } from "../factories/user.factory";
 import { dataHelper } from "../helpers/data.helper";
 import { IPlace } from "../interfaces/place.interface";
 import { IUser } from "../interfaces/user.interface";
-import { notificationService } from "../services/notification.service";
 
 const api = environment.api();
 
@@ -12,7 +12,8 @@ export const userRepository = {
     try {
       const user = await api.users.me.read(userFactory.read());
       return dataHelper.to<IUser>(user);
-    } catch {
+    } catch (e) {
+      notificationService.throw(e, "Une erreur est survenue");
       throw new Error();
     }
   },
