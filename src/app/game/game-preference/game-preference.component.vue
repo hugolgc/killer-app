@@ -53,7 +53,7 @@ watchEffect(() => {
           <img
             :src="userHelper.getAvatar(userService.user)"
             :alt="userHelper.getFullName(userService.user)"
-            class="avatar large"
+            class="avatar medium"
           />
           <div class="information">
             <h2>{{ userHelper.getFullName(userService.user) }}</h2>
@@ -111,7 +111,7 @@ watchEffect(() => {
                 >
                   <path
                     d="M1.25 1.5L8.75 9L1.25 16.5"
-                    stroke="#666666"
+                    stroke="#999999"
                     stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -138,7 +138,7 @@ watchEffect(() => {
               </svg>
             </div>
             <div class="item">
-              <p>Notification</p>
+              <p>Notifications</p>
               <button class="switch">
                 <span class="sr-only">Activation des notifications</span>
               </button>

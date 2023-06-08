@@ -29,7 +29,7 @@ export const missionService = reactive<IState>({
       this.missions = missions;
 
       this.createMissionsFromObjectiveTypes(
-        missionHelper.getMissingObjectiveTypes(missions)
+        missionHelper.getMissingObjectiveTypes(this.missions)
       );
     });
   },
@@ -65,7 +65,6 @@ export const missionService = reactive<IState>({
 
   async completeMission(mission: IMission): Promise<void> {
     if (!userService.user) return;
-
     userService.user.points += mission.objective.points;
 
     await userRepository.updateUser(userService.user.id, {

@@ -21,10 +21,7 @@ const emits = defineEmits<IEmit>();
 function open(): void {
   setTimeout(() => {
     active.value = true;
-    scanner.value = new QrScanner(
-      document.querySelector("video")!,
-      (targetUserId) => scan(targetUserId)
-    );
+    scanner.value = new QrScanner(document.querySelector("video")!, scan);
     scanner.value.start();
   });
 }
@@ -34,21 +31,21 @@ function close(): void {
   setTimeout(() => emits("update:modelValue", undefined), 330);
 }
 
-function scan(targetUserId: string): void {
+async function scan(targetUserId: string): Promise<void> {
+  const missionEvent = new CustomEvent<IMission>("completeMission", {
+    detail: props.modelValue,
+  });
+
   if (
     scanner.value &&
     props.modelValue &&
     props.modelValue.target_user.id === targetUserId
   ) {
-    // missionService.kill(appService.data.missionToScan);
+    await missionService.completeMission(props.modelValue);
+    missionService.getMissionsFromUser(props.modelValue.current_user);
+    document.dispatchEvent(missionEvent);
     scanner.value.destroy();
     close();
-  }
-}
-
-async function test(): Promise<void> {
-  if (props.modelValue) {
-    await missionService.completeMission(props.modelValue);
   }
 }
 
@@ -86,7 +83,7 @@ watchEffect(() => {
           </svg>
         </button>
       </div>
-      <div @click="test()" class="preview">
+      <div @click="scan(props.modelValue.target_user.id)" class="preview">
         <video></video>
       </div>
     </div>

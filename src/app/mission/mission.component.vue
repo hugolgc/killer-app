@@ -8,6 +8,7 @@ import { IMission } from "../../interfaces/mission.interface";
 import GameToolbarComponent from "../game/game-toolbar/game-toolbar.component.vue";
 import MissionQRCodeComponent from "../mission/mission-qrcode/mission-qrcode.component.vue";
 import MissionScannerComponent from "./mission-scanner/mission-scanner.component.vue";
+import MissionResumeComponent from "./mission-resume/mission-resume.component.vue";
 
 const showQRCodeComponent = ref<boolean>(false);
 const selectedMission = ref<IMission>();
@@ -22,6 +23,7 @@ if (userService.user) {
     <GameToolbarComponent>Missions</GameToolbarComponent>
     <MissionQRCodeComponent v-model="showQRCodeComponent" />
     <MissionScannerComponent v-model="selectedMission" />
+    <MissionResumeComponent />
     <section role="list">
       <article role="listitem">
         <header>

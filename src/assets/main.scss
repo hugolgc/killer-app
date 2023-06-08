@@ -26,9 +26,19 @@ body {
   border-radius: 999px;
 }
 
-.avatar.large {
+.avatar.medium {
   width: 64px;
   height: 64px;
+}
+
+.avatar.large {
+  width: 80px;
+  height: 80px;
+}
+
+.avatar.big {
+  width: 128px;
+  height: 128px;
 }
 
 .button {
@@ -51,6 +61,17 @@ body {
 
 .button.large {
   font-size: 16px;
+}
+
+.button.big {
+  height: 56px;
+  background: #666666;
+  font-size: 18px;
+}
+
+.button.big.outline {
+  background: transparent;
+  border: 2px solid #333333;
 }
 
 .sr-only {
