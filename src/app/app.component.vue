@@ -7,18 +7,18 @@ import NotificationComponent from "./notification/notification.component.vue";
 const router = useRouter();
 const loading = ref<boolean>(false);
 
-async function read(): Promise<void> {
+async function readUser(): Promise<void> {
   loading.value = true;
 
   try {
-    await userService.read();
+    await userService.readUser();
     if (userService.user) router.push("/game/mission");
   } finally {
     loading.value = false;
   }
 }
 
-if (localStorage.getItem("auth_token")) read();
+if (localStorage.getItem("auth_token")) readUser();
 </script>
 
 <template>

@@ -1,5 +1,8 @@
 import { environment } from "../environments";
+import { ICredential } from "../interfaces/credential.interface";
+import { IPlace } from "../interfaces/place.interface";
 import { ISwitch } from "../interfaces/swtich.interface";
+import { IUserDto } from "../interfaces/user-dto.interface";
 import { IUser } from "../interfaces/user.interface";
 
 export const userHelper = {
@@ -51,5 +54,13 @@ export const userHelper = {
     }
 
     return user.place.name;
+  },
+
+  getUserDto(credential: ICredential, place: IPlace): IUserDto {
+    return {
+      ...credential,
+      place: place.id,
+      company: place.company.id,
+    };
   },
 };

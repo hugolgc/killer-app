@@ -4,13 +4,14 @@ import { userFactory } from "../factories/user.factory";
 import { dataHelper } from "../helpers/data.helper";
 import { IPlace } from "../interfaces/place.interface";
 import { IUser } from "../interfaces/user.interface";
+import { IUserDto } from "../interfaces/user-dto.interface";
 
 const api = environment.api();
 
 export const userRepository = {
-  async read(): Promise<IUser> {
+  async readUser(): Promise<IUser> {
     try {
-      const user = await api.users.me.read(userFactory.read());
+      const user = await api.users.me.read(userFactory.readUser());
       return dataHelper.to<IUser>(user);
     } catch (e) {
       notificationService.throw(e, "Une erreur est survenue");
@@ -37,6 +38,15 @@ export const userRepository = {
       return dataHelper.to<IUser[]>(users.data);
     } catch (e) {
       notificationService.throw(e, "Une erreur est survenue");
+      throw new Error();
+    }
+  },
+
+  async createUser(userDto: IUserDto): Promise<IUser> {
+    try {
+      const user = await api.users.createOne(userDto);
+      return dataHelper.to<IUser>(user);
+    } catch (e) {
       throw new Error();
     }
   },

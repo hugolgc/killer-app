@@ -9,6 +9,7 @@ import GameToolbarComponent from "../game/game-toolbar/game-toolbar.component.vu
 import MissionQRCodeComponent from "../mission/mission-qrcode/mission-qrcode.component.vue";
 import MissionScannerComponent from "./mission-scanner/mission-scanner.component.vue";
 import MissionResumeComponent from "./mission-resume/mission-resume.component.vue";
+import MissionSkeletonComponent from "./mission-skeleton/mission-skeleton.component.vue";
 
 const showQRCodeComponent = ref<boolean>(false);
 const selectedMission = ref<IMission>();
@@ -80,6 +81,12 @@ if (userService.user) {
           </div>
         </footer>
       </article>
+      <template v-if="missionService.missions.length < 3">
+        <MissionSkeletonComponent
+          v-for="skeleton in 3 - missionService.missions.length"
+          :key="skeleton"
+        />
+      </template>
     </section>
   </main>
 </template>

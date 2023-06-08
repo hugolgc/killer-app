@@ -1,7 +1,7 @@
 import { IPlace } from "../interfaces/place.interface";
 
 export const userFactory = {
-  read() {
+  readUser() {
     return {
       fields: [
         "id",

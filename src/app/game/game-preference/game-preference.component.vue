@@ -59,23 +59,6 @@ watchEffect(() => {
             <h2>{{ userHelper.getFullName(userService.user) }}</h2>
             <h3>{{ userService.user.service.name }}</h3>
           </div>
-          <!-- <button class="button icon">
-            <svg
-              width="24"
-              height="24"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.75"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button> -->
         </div>
         <button @click="logout()" class="button large">Déconnexion</button>
       </section>

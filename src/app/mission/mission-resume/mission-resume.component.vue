@@ -81,7 +81,7 @@ document.addEventListener("completeMission", (missionEvent) => {
                   fill="#999999"
                 />
               </svg>
-              <span>3 jours en activité</span>
+              <span>3 jours d'activité</span>
             </li>
             <li>
               <svg

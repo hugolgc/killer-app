@@ -6,6 +6,7 @@ import { SWITCHS } from "../../mocks/switchs.mock";
 import { ISwitch } from "../../interfaces/swtich.interface";
 import GameToolbarComponent from "../game/game-toolbar/game-toolbar.component.vue";
 import RankingSwitchComponent from "../ranking/ranking-switch/ranking-switch.component.vue";
+import RankingSkeletonComponent from "./ranking-skeleton/ranking-skeleton.component.vue";
 
 const selectedSwitch = ref<ISwitch>(SWITCHS[0]);
 const users = computed(() => {
@@ -40,6 +41,9 @@ userService.getUsers();
         </div>
         <h5>{{ user.points }} pts</h5>
       </article>
+      <template v-if="!users.length">
+        <RankingSkeletonComponent v-for="skeleton in 9" :key="skeleton" />
+      </template>
     </section>
   </main>
 </template>

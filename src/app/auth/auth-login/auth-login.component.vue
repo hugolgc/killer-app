@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, RouterLink } from "vue-router";
 import { authService } from "../../../services/auth.service";
 import { userService } from "../../../services/user.service";
 import { notificationService } from "../../../services/notification.service";
@@ -13,7 +13,7 @@ async function login(): Promise<void> {
 
   try {
     await authService.login();
-    await userService.read();
+    await userService.readUser();
     if (userService.user) router.push("/game/mission");
   } catch (e) {
     notificationService.throw(
@@ -49,6 +49,7 @@ async function login(): Promise<void> {
       required
     />
     <button type="submit">Se connecter</button>
+    <RouterLink to="/auth/login" class="link">Mot de passe oublié</RouterLink>
   </form>
 </template>
 

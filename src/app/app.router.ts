@@ -20,7 +20,7 @@ export const appRouter = createRouter({
       beforeEnter: () => authGuard(),
       children: [
         { path: "login", component: AuthLoginComponent },
-        { path: "register", component: AuthRegisterComponent },
+        { path: "register/:place", component: AuthRegisterComponent },
       ],
     },
     {

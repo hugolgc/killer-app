@@ -7,6 +7,7 @@ export interface ICompany {
   id: number;
   status: boolean;
   name: string;
+  logo: string;
   places: IPlace[];
   services: IService[];
   objectives: IObjective[];

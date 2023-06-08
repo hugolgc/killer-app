@@ -4,6 +4,7 @@ import { missionService } from "../../services/mission.service";
 import { userService } from "../../services/user.service";
 import { userHelper } from "../../helpers/user.helper";
 import { missionHelper } from "../../helpers/mission.helper";
+import ActivitySkeletonComponent from "./activity-skeleton/activity-skeleton.component.vue";
 
 if (userService.user) {
   missionService.getMissionsFromPlace(userService.user.place);
@@ -39,6 +40,9 @@ if (userService.user) {
           </h3>
         </div>
       </article>
+      <template v-if="!missionService.activities.length">
+        <ActivitySkeletonComponent v-for="skeleton in 6" :key="skeleton" />
+      </template>
     </section>
   </main>
 </template>
