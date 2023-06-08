@@ -1,0 +1,158 @@
+.preference {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px 0;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition-duration: 0.33s;
+  opacity: 0;
+}
+
+.background.active {
+  opacity: 1;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #141414;
+  border-radius: 24px;
+  transition-duration: 0.33s;
+  translate: 0 125%;
+  z-index: 1;
+}
+
+.body.active {
+  translate: 0;
+}
+
+section {
+  background: #1e1e1e;
+  border-radius: 24px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px 16px;
+  gap: 24px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.information {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+  color: #999999;
+}
+
+.setting {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px 12px;
+  gap: 12px;
+}
+
+h4 {
+  font-size: 14px;
+  color: #666666;
+}
+
+[role="listitem"] {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+
+[role="listitem"]:last-child .item {
+  border: none;
+}
+
+.vector {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  flex: 1 1 0%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #282828;
+}
+
+.item p {
+  flex: 1 1 0%;
+}
+
+.item-icon {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  width: 48px;
+  height: 32px;
+  flex: none;
+  background: #333333;
+  border-radius: 999px;
+  flex: none;
+}
+
+.switch.active {
+  background: #376fff;
+}
+
+.switch::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  inset: 4px auto auto 4px;
+  background: #ffffff;
+  border-radius: 999px;
+}
+
+.switch.active::after {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  inset: 4px 4px auto auto;
+  background: #ffffff;
+  border-radius: 999px;
+}

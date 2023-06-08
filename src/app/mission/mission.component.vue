@@ -4,10 +4,13 @@ import { userService } from "../../services/user.service";
 import { missionService } from "../../services/mission.service";
 import { userHelper } from "../../helpers/user.helper";
 import { missionHelper } from "../../helpers/mission.helper";
+import { IMission } from "../../interfaces/mission.interface";
 import GameToolbarComponent from "../game/game-toolbar/game-toolbar.component.vue";
 import MissionQRCodeComponent from "../mission/mission-qrcode/mission-qrcode.component.vue";
+import MissionScannerComponent from "./mission-scanner/mission-scanner.component.vue";
 
 const showQRCodeComponent = ref<boolean>(false);
+const selectedMission = ref<IMission>();
 
 if (userService.user) {
   missionService.getMissionsFromUser(userService.user);
@@ -18,6 +21,7 @@ if (userService.user) {
   <main>
     <GameToolbarComponent>Missions</GameToolbarComponent>
     <MissionQRCodeComponent v-model="showQRCodeComponent" />
+    <MissionScannerComponent v-model="selectedMission" />
     <section role="list">
       <article role="listitem">
         <header>
@@ -53,9 +57,11 @@ if (userService.user) {
             <h2>{{ userHelper.getFullName(mission.target_user) }}</h2>
             <h3>{{ mission.target_user.service.name }}</h3>
           </div>
-          <button class="button">Killer</button>
+          <button @click="selectedMission = mission" class="button">
+            Killer
+          </button>
         </header>
-        <h4 class="content">{{ mission.objective.value }}</h4>
+        <h4>{{ mission.objective.value }}</h4>
         <footer>
           <div class="progress">
             <div

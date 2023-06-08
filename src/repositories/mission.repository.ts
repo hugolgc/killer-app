@@ -6,6 +6,7 @@ import { IMissionDto } from "../interfaces/mission-dto.interface";
 import { IMission } from "../interfaces/mission.interface";
 import { IPlace } from "../interfaces/place.interface";
 import { IUser } from "../interfaces/user.interface";
+
 const api = environment.api();
 
 export const missionRepository = {
@@ -45,6 +46,18 @@ export const missionRepository = {
         .items("missions")
         .createMany(missionsDto, missionFactory.getMissionsFromUser(user));
       return dataHelper.to<IMission[]>(missions.data);
+    } catch (e) {
+      notificationService.throw(e, "Une erreur est survenue");
+      throw new Error();
+    }
+  },
+
+  async updateMission(
+    id: number,
+    missionDto: Partial<IMission>
+  ): Promise<void> {
+    try {
+      await api.items("missions").updateOne(id, missionDto);
     } catch (e) {
       notificationService.throw(e, "Une erreur est survenue");
       throw new Error();

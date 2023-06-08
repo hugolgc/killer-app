@@ -16,6 +16,7 @@
     "@capacitor/ios": "^5.0.4",
     "@directus/sdk": "^10.3.3",
     "dayjs": "^1.11.7",
+    "qr-scanner": "^1.4.2",
     "vue": "^3.2.47",
     "vue-router": "^4.2.1"
   },

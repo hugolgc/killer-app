@@ -1,10 +1,11 @@
+import { dataHelper } from "../helpers/data.helper";
 import { IPlace } from "../interfaces/place.interface";
 import { IUser } from "../interfaces/user.interface";
 import dayjs from "dayjs";
 
 export const missionFactory = {
   getMissionsFromUser(user: IUser) {
-    const now = dayjs().format("YYYY-MM-DDTHH:mm:ss");
+    const now = dataHelper.getDateISO(dayjs());
 
     return {
       fields: [

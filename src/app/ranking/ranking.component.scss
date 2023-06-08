@@ -4,6 +4,7 @@ main {
   flex-direction: column;
   padding: 8px 0 16px;
   gap: 24px;
+  overflow-y: auto;
 }
 
 section {

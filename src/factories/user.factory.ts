@@ -14,6 +14,7 @@ export const userFactory = {
         "place.name",
         "service.id",
         "service.name",
+        "points",
       ],
     };
   },

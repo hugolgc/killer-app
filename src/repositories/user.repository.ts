@@ -40,4 +40,13 @@ export const userRepository = {
       throw new Error();
     }
   },
+
+  async updateUser(id: string, user: Partial<IUser>): Promise<void> {
+    try {
+      await api.users.updateOne(id, user);
+    } catch (e) {
+      notificationService.throw(e, "Une erreur est survenue");
+      throw new Error();
+    }
+  },
 };

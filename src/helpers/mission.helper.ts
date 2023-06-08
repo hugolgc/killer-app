@@ -68,7 +68,6 @@ export const missionHelper = {
   getMissionsDto(
     objectivesType: TObjective[],
     objectives: IObjective[],
-    current: IUser,
     targets: IUser[]
   ): IMissionDto[] {
     const now = dayjs();
@@ -82,7 +81,6 @@ export const missionHelper = {
       if (!objectivesOfType.length) return;
 
       missionsDto.push({
-        current_user: current.id,
         target_user: dataHelper.getRandomFromArray(targets).id,
         objective: dataHelper.getRandomFromArray(objectivesOfType).id,
         start: dataHelper.getDateISO(now.startOf(objectiveType)),
