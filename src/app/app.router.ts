@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { authGuard } from "../guard/auth.guard";
-import { gameGuard } from "../guard/game.guard";
+import { authGuard } from "../guards/auth.guard";
+import { gameGuard } from "../guards/game.guard";
 import AuthComponent from "./auth/auth.component.vue";
 import GameComponent from "./game/game.component.vue";
 import MissionComponent from "./mission/mission.component.vue";
