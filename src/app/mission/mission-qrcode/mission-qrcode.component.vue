@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watchEffect } from "vue";
-import { userService } from "../../services/user.service";
-import { userHelper } from "../../helpers/user.helper";
+import { userService } from "../../../services/user.service";
+import { userHelper } from "../../../helpers/user.helper";
 
 interface IProp {
   modelValue: boolean;
@@ -60,4 +60,4 @@ watchEffect(() => {
   </div>
 </template>
 
-<style scoped src="./qrcode.component.scss" />
+<style scoped src="./mission-qrcode.component.scss" />

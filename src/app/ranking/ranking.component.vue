@@ -4,8 +4,8 @@ import { userHelper } from "../../helpers/user.helper";
 import { userService } from "../../services/user.service";
 import { SWITCHS } from "../../mocks/switchs.mock";
 import { ISwitch } from "../../interfaces/swtich.interface";
-import SwitchComponent from "../_switch/switch.component.vue";
-import ToolbarComponent from "../_toolbar/toolbar.component.vue";
+import GameToolbarComponent from "../game/game-toolbar/game-toolbar.component.vue";
+import RankingSwitchComponent from "../ranking/ranking-switch/ranking-switch.component.vue";
 
 const selectedSwitch = ref<ISwitch>(SWITCHS[0]);
 const users = computed(() => {
@@ -22,8 +22,8 @@ userService.getUsers();
 
 <template>
   <main>
-    <ToolbarComponent>Classements</ToolbarComponent>
-    <SwitchComponent v-model="selectedSwitch" />
+    <GameToolbarComponent>Classements</GameToolbarComponent>
+    <RankingSwitchComponent v-model="selectedSwitch" />
     <section role="list">
       <article v-for="(user, index) in users">
         <h4 :class="`is-${index}`">{{ index + 1 }}</h4>

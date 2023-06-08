@@ -4,8 +4,8 @@ import { userService } from "../../services/user.service";
 import { missionService } from "../../services/mission.service";
 import { userHelper } from "../../helpers/user.helper";
 import { missionHelper } from "../../helpers/mission.helper";
-import ToolbarComponent from "../_toolbar/toolbar.component.vue";
-import QRCodeComponent from "../_qrcode/qrcode.component.vue";
+import GameToolbarComponent from "../game/game-toolbar/game-toolbar.component.vue";
+import MissionQRCodeComponent from "../mission/mission-qrcode/mission-qrcode.component.vue";
 
 const showQRCodeComponent = ref<boolean>(false);
 
@@ -16,8 +16,8 @@ if (userService.user) {
 
 <template>
   <main>
-    <ToolbarComponent>Missions</ToolbarComponent>
-    <QRCodeComponent v-model="showQRCodeComponent" />
+    <GameToolbarComponent>Missions</GameToolbarComponent>
+    <MissionQRCodeComponent v-model="showQRCodeComponent" />
     <section role="list">
       <article role="listitem">
         <header>

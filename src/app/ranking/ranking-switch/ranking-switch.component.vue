@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { SWITCHS } from "../../mocks/switchs.mock";
-import { ISwitch } from "../../interfaces/swtich.interface";
+import { SWITCHS } from "../../../mocks/switchs.mock";
+import { ISwitch } from "../../../interfaces/swtich.interface";
 
 interface IProp {
   modelValue: ISwitch;
@@ -26,4 +26,4 @@ const emits = defineEmits<IEmit>();
   </div>
 </template>
 
-<style scoped src="./switch.component.scss" />
+<style scoped src="./ranking-switch.component.scss" />

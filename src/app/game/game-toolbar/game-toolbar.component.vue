@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { userHelper } from "../../helpers/user.helper";
-import { userService } from "../../services/user.service";
+import { userHelper } from "../../../helpers/user.helper";
+import { userService } from "../../../services/user.service";
 </script>
 
 <template>
@@ -17,4 +17,4 @@ import { userService } from "../../services/user.service";
   </div>
 </template>
 
-<style scoped src="./toolbar.component.scss" />
+<style scoped src="./game-toolbar.component.scss" />

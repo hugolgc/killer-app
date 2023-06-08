@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { authService } from "../../services/auth.service";
-import { userService } from "../../services/user.service";
-import { notificationService } from "../../services/notification.service";
+import { authService } from "../../../services/auth.service";
+import { userService } from "../../../services/user.service";
+import { notificationService } from "../../../services/notification.service";
 
 const router = useRouter();
 const loading = ref<boolean>(false);
@@ -48,8 +48,8 @@ async function login(): Promise<void> {
       placeholder="••••••••••"
       required
     />
-    <button type="submit">Connexion</button>
+    <button type="submit">Inscription</button>
   </form>
 </template>
 
-<style scoped src="./login.component.scss" />
+<style scoped src="./auth-register.component.scss" />

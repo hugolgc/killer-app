@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ToolbarComponent from "../_toolbar/toolbar.component.vue";
+import GameToolbarComponent from "../game/game-toolbar/game-toolbar.component.vue";
 import { missionService } from "../../services/mission.service";
 import { userService } from "../../services/user.service";
 import { userHelper } from "../../helpers/user.helper";
@@ -12,7 +12,7 @@ if (userService.user) {
 
 <template>
   <main>
-    <ToolbarComponent>Activités</ToolbarComponent>
+    <GameToolbarComponent>Activités</GameToolbarComponent>
     <section role="list">
       <article v-for="activity in missionService.activities" role="listitem">
         <div class="avatars">

@@ -1,8 +1,11 @@
 import { test, expect } from "@playwright/test";
-import { testHelper } from "../../helpers/test.helper";
+import { testHelper } from "../../../helpers/test.helper";
+
+test.beforeEach(async ({ page }) => {
+  await testHelper.login(page);
+});
 
 test("QRCode Component", async ({ page }) => {
-  await testHelper.login(page);
   await expect(page.locator(".qrcode")).toHaveCount(0);
   await page
     .getByRole("listitem")

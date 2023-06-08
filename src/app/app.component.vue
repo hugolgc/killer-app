@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { RouterView, useRouter } from "vue-router";
 import { userService } from "../services/user.service";
-import NotificationComponent from "./_notification/notification.component.vue";
+import NotificationComponent from "./notification/notification.component.vue";
 
 const router = useRouter();
 const loading = ref<boolean>(false);
