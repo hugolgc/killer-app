@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "test": "npx playwright test",
-    "test-ui": "npx playwright test --ui",
+    "test-create": "npx playwright codegen localhost:5173",
+    "test-run": "npx playwright test --ui",
+    "ios-build": "npx cap add ios",
+    "android-build": "npx cap add android",
     "preview": "vite preview"
   },
   "dependencies": {

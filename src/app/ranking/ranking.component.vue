@@ -18,7 +18,9 @@ const users = computed(() => {
   );
 });
 
-userService.getUsers();
+setTimeout(() => {
+  userService.getUsers();
+}, 1_000);
 </script>
 
 <template>

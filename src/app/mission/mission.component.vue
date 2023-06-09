@@ -14,9 +14,11 @@ import MissionSkeletonComponent from "./mission-skeleton/mission-skeleton.compon
 const showQRCodeComponent = ref<boolean>(false);
 const selectedMission = ref<IMission>();
 
-if (userService.user) {
-  missionService.getMissionsFromUser(userService.user);
-}
+setTimeout(() => {
+  if (userService.user) {
+    missionService.getMissionsFromUser(userService.user);
+  }
+}, 1_000);
 </script>
 
 <template>

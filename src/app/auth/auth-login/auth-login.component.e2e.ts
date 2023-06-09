@@ -5,6 +5,6 @@ test.beforeEach(async ({ page }) => {
   await testHelper.login(page);
 });
 
-test("Login Component", async ({ page }) => {
+test("Auth Login Component", async ({ page }) => {
   await expect(page.locator('img[alt="Hugo Lagache"]')).toHaveCount(1);
 });

@@ -30,18 +30,26 @@ export const missionHelper = {
     )}%`;
   },
 
+  toPlurial(length: number): string {
+    return length > 1 ? "s" : "";
+  },
+
   getCountdown(mission: IMission): string {
     const dateNow = dayjs();
     const dateEnd = dayjs(mission.end);
-
     const remainingDays = dateEnd.diff(dateNow, "days");
-    if (remainingDays > 1) {
-      return `${remainingDays} jours restants`;
+
+    if (remainingDays > 0) {
+      return `${remainingDays} jour${this.toPlurial(
+        remainingDays
+      )} restant${this.toPlurial(remainingDays)}`;
     }
 
     const remainingHours = dateEnd.diff(dateNow, "hours");
-    if (remainingHours > 1) {
-      return `${remainingHours} heures restantes`;
+    if (remainingHours > 0) {
+      return `${remainingHours} heure${this.toPlurial(
+        remainingHours
+      )} restante${this.toPlurial(remainingHours)}`;
     }
 
     return `Bientôt terminée`;

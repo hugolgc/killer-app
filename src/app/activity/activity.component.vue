@@ -6,9 +6,11 @@ import { userHelper } from "../../helpers/user.helper";
 import { missionHelper } from "../../helpers/mission.helper";
 import ActivitySkeletonComponent from "./activity-skeleton/activity-skeleton.component.vue";
 
-if (userService.user) {
-  missionService.getMissionsFromPlace(userService.user.place);
-}
+setTimeout(() => {
+  if (userService.user) {
+    missionService.getMissionsFromPlace(userService.user.place);
+  }
+}, 1_000);
 </script>
 
 <template>
